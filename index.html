@@ -21,6 +21,8 @@
 	<button id="GFG_Button">Calculate</button>
   <h1 id="result"></h1>
   <h1 id="ratio"></h1>
+	<button id="total_Button">最佳數量</button>
+  <div id="bestOptions"></div>
 			
 	<script>
 		$("#x").keypress(function(event) {
@@ -35,6 +37,16 @@
       $("#result").text(`Bonus: ${y}`)
       $("#ratio").text(`Bonus ratio: ${y/x*100}%`)
 		});
+    $("#total_Button").click(function() {
+      var current_y=0;
+      for (var i=1; i<100; i++){
+        y = Math.floor( i * Math.log10(i) / 10 )
+        if (y>current_y) {
+              $("#bestOptions").append(`<h4>Mass: ${i}, Bonus: ${y}, Bonus Ratio: ${y*100/i}%</h4>`)
+          current_y = y;
+        }
+      }
+    })
 	</script>
 </body>
 
