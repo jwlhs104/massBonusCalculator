@@ -20,6 +20,7 @@
 	X:<input id="x" type="number" min="0" step="1" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"><br>
 	<button id="GFG_Button">Calculate</button>
   <h1 id="result"></h1>
+  <h1 id="ratio"></h1>
 			
 	<script>
 		$("#x").keypress(function(event) {
@@ -31,7 +32,8 @@
 		$("#GFG_Button").click(function() {
       var x = parseInt($("#x").val())
       var y = Math.floor( x * Math.log10(x) / 10 )
-      $("#result").text(`${y}`)
+      $("#result").text(`Bonus: ${y}`)
+      $("#ratio").text(`Bonus ratio: ${y/x*100}%`)
 		});
 	</script>
 </body>
