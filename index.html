@@ -1,9 +1,39 @@
-<div id="app">
-  <div id="input">
-    <input id="x"></input>
-  </div>
-  <div id="result"></div>
-</div>
-<script>
+<!DOCTYPE html>
+<html>
 
-</script>
+<head>
+	<title>
+      Mass Bonus Calculator
+	</title>
+	
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+	</script>
+</head>
+		
+<body style = "text-align:center;">
+	
+	<h1 style = "color:green;" >
+    Mass Bonus Calculator
+	</h1>
+
+	X:<input id="x" type="number" min="0" step="1" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"><br>
+	<button id="GFG_Button">Calculate</button>
+  <h1 id="result"></h1>
+			
+	<script>
+		$("#x").keypress(function(event) {
+			if (event.keyCode === 13) {
+				$("#GFG_Button").click();
+			}
+		});
+
+		$("#GFG_Button").click(function() {
+      var x = parseInt($("#x").val())
+      var y = Math.floor( x * Math.log10(x) / 10 )
+      $("#result").text(`${y}`)
+		});
+	</script>
+</body>
+
+</html>
